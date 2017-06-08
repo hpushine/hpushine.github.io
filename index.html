@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <title>bootstrap测试用例</title>
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+  <meta  charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1,user-scalable=no" />
+  <link href="favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="./jquery.min.js"></script>
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+
+</style>
+<body>
+<div id="temp"></div>
+<ul class="JQ-content-box" style="padding:20px; background:#FFFFFF">
+    <li>第一行
+        <ul>
+            <li>这是公告标题1</li>
+            <li>这是公告标题2</li>
+            <li>这是公告标题3</li>
+            <li>这是公告标题4</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $(function(){
+        $("li").on("click",function(e){
+            console.log(e.target);
+            console.log(this);
+            $("#temp").html("clicked: " + e.target.nodeName);
+            $(e.target).css("color","#FF3300");
+        })
+    });
+</script>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="bs-example" data-example-id="embedded-scrollspy">
+    <nav id="navbar-example2" class="navbar navbar-default navbar-static">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project Name</a>
+        </div>
+        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#fat">@fat</a></li>
+            <li class=""><a href="#mdo">@mdo</a></li>
+            <li class="dropdown">
+              <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDrop1">
+                <li class=""><a href="#one">one</a></li>
+                <li class=""><a href="#two">two</a></li>
+                <li role="separator" class="divider"></li>
+                <li class=""><a href="#three">three</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div  data-offset="0" class="scrollspy-example" data-spy="scroll" data-target="#navbar-example2">
+      <h4 id="fat">@fat</h4>
+      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+      <h4 id="mdo">@mdo</h4>
+      <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+      <h4 id="one">one</h4>
+      <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+      <h4 id="two">two</h4>
+      <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+      <h4 id="three">three</h4>
+      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+      <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+      </p>
+    </div>
+</div> -->
+
+<div id="navbar-example">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" id="navbar-example">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size: 30px"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+  <span class="glyphicon glyphicon-menu-up"></span>
+    <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
+    <div role="tabpanel" class="tab-pane fade" id="profile">@fat</div>
+    <div role="tabpanel" class="tab-pane " id="messages">3</div>
+    <div role="tabpanel" class="tab-pane " id="settings">4</div>
+  </div>
+</div>
+
+<!-- HTML to write -->
+<div id="csswer" data-toggle="tooltip" data-trigger="click" title="Example tooltip">请悬停在我的上面</div>
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on 底部
+</button>
+
+<div class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+</div>
+
+
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Link with href
+</a>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Button with data-target
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    111
+  </div>
+</div>
+
+<!-- Carousel  -->
+
+</body>
+</html>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+$(function () { 
+	$("[data-toggle='tooltip']").tooltip();
+	$('[data-toggle="popover"]').popover()
+});
+$('#csswer').on('shown.bs.tooltip', function () {
+  
+})
+
+	/**
+	* @example $.cookie('the_cookie', 'the_value');
+	* @desc Set the value of a cookie.
+	* @example $.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: 'jquery.com', secure: true });
+	* @desc Create a cookie with all available options.
+	* @example $.cookie('the_cookie', 'the_value');
+	* @desc Create a session cookie.
+	* @example $.cookie('the_cookie', null);
+	*/
+	jQuery.cookie = function(name, value, options) {
+	    if (typeof value != 'undefined') { // name and value given, set cookie
+	        options = options || {};
+	        if (value === null) {
+	            value = '';
+	            options.expires = -1;
+	        }
+	        var expires = '';
+	        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+	            var date;
+	            if (typeof options.expires == 'number') {
+	                date = new Date();
+	                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+	            } else {
+	                date = options.expires;
+	            }
+	            expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+	        }
+	        // CAUTION: Needed to parenthesize options.path and options.domain
+	        // in the following expressions, otherwise they evaluate to undefined
+	        // in the packed version for some reason...
+	        var path = options.path ? '; path=' + (options.path) : '';
+	        var domain = options.domain ? '; domain=' + (options.domain) : '';
+	        var secure = options.secure ? '; secure' : '';
+	        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+	    } else { // only name given, get cookie
+	        var cookieValue = null;
+	        if (document.cookie && document.cookie != '') {
+	            var cookies = document.cookie.split(';');
+	            for (var i = 0; i < cookies.length; i++) {
+	                var cookie = jQuery.trim(cookies[i]);
+	                // Does this cookie string begin with the name we want?
+	                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                    break;
+	                }
+	            }
+	        }
+	        return cookieValue;
+	    }
+	};
+</script>
