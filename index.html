@@ -17,11 +17,16 @@
       background: lightblue;
       line-height: 50px;
       font-size:22px;
+      color:green;
     }
     #header img{
       margin-left: 10px;
       max-width: 30px;
       height: auto;
+    }
+    .popover {
+      background: lightblue;
+      color:green;
     }
     #header .welcome{
       float: right;
@@ -49,6 +54,8 @@
   <div id="header">
     <img src="./images/8.png">
     <span class="name">李景超的博客</span>
+    <!-- HTML to write -->
+    <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>
     <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
   </div>
 </nav>
@@ -142,18 +149,13 @@
     </div>
   </div>
 
-  <!-- HTML to write -->
-  <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Vivamus
-  sagittis lacus vel augue laoreet rutrum faucibus.">
-    Popover on 底部
-  </button>
 
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Link with href
   </a>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+ <!--  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Button with data-target
-  </button>
+  </button> -->
   <div class="collapse" id="collapseExample">
     <div class="well">
       111
@@ -174,7 +176,9 @@
 
 $(function () { 
 	$("[data-toggle='tooltip']").tooltip();
-	$('[data-toggle="popover"]').popover()
+	$('[data-toggle="popover"]').popover({
+
+  });
 });
 $('#csswer').on('shown.bs.tooltip', function () {
   
