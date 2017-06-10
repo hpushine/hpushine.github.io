@@ -194,14 +194,14 @@ function dataformat(){
   return week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm;
   // datestr = week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm+':'+s; 
 }
-$(function () {
-  var datestr = dataformat();
-  $('#header .time').html(datestr); 
-  setInterval(function(){
-    datestr = dataformat();
-    $('#header .time').html(datestr);
-  },60000)
-});
+
+var datestr = dataformat();
+$('#header .time').html(datestr); 
+setInterval(function(){
+  datestr = dataformat();
+  $('#header .time').html(datestr);
+},60000);
+
 // setInterval(dataformat(),1000);
 
 	/**
