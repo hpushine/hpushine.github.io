@@ -60,6 +60,8 @@
     }
     .nav-link a:hover{
       opacity: 0.6;
+      border-bottom: 2px solid green;
+      height:50px;
     }
     .blog-container {
       width: 86%;
@@ -103,6 +105,11 @@
       font-weight: 200;
       display: block;
     }
+    .active-nav {
+      border-bottom: 2px solid green;
+      height:50px;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
@@ -115,9 +122,9 @@
         <button style="" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>    
       </div>
       <ul class="nav-link">
-        <li><a href="/">首页</a></li>
-        <li><a href="/app">HTML</a></li>
-        <li><a href="/app">CSS</a></li>
+        <li><a href="/" class="active-nav">首页</a></li>
+       <!--  <li><a href="/app">HTML</a></li>
+        <li><a href="/app">CSS</a></li> -->
         <li><a href="/app">JS</a></li>
       </ul>
       <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
@@ -730,7 +737,6 @@
   </div>
 </html>
 <script type="text/javascript">
-
 $(function () { 
 	$("[data-toggle='tooltip']").tooltip();
 	$('[data-toggle="popover"]').popover();
