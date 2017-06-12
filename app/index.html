@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>个人博客</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- <meta charset=utf-8" /> -->
+  <link href="../favicon.ico" rel="shortcut icon">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1,user-scalable=no">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../jquery.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    #header{
+      margin:0 auto;
+      width: 100%;
+      height: 60px;
+      background: lightblue;
+      line-height: 60px;
+      font-size:22px;
+      color:green;
+      min-width: 600px;
+      overflow: hidden;
+    }
+    #header img{
+      margin:5px;
+      width: 50px;
+      height: 50px;
+    }
+    .popover {
+      /*background: lightblue;*/
+      color:green;
+    }
+    #header .welcome{
+      float: right;
+      margin-right: 30px;
+      font-size:12px;
+    }
+    .name-info {
+      float: left;
+    }
+    .nav-link {
+      display: inline-block;
+      list-style: none;
+      padding-left: 0;
+    }
+    .nav-link a{
+      text-decoration: none;
+      color:green;
+      opacity: 1;
+    }
+    .nav-link a:hover{
+      opacity: 0.6;
+    }
+    .nav-link li{
+      list-style: none;
+      float: left;
+      margin-left: 80px;
+    }
+    .blog-container {
+      width: 100%;
+      min-width: 600px;
+      margin:0 auto;
+    }
+    #left {
+      float: left;
+      width: 18%;
+      min-width: 100px;
+      min-height: 580px;
+      background: #ebebeb;
+    }
+    #right {
+      float: left;
+      width: 82%;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div id="header">
+    <div class="name-info">
+      <img src="../images/8.png">
+      <span class="name">李景超的博客</span>
+      <!-- HTML to write -->
+      <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>    
+    </div>
+    <ul class="nav-link">
+      <li><a href="/">首页</a></li>
+      <li><a href="/app">HTML</a></li>
+      <li><a href="/app">CSS</a></li>
+      <li><a href="/app">JS</a></li>
+    </ul>
+    <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
+  </div>
+</nav>
+<div class="blog-container">
+  <div id="left">
+  </div>
+  <div id="right">
+    <!-- tab -->
+    <div id="navbar-example">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" id="navbar-example">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size:"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
+        <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
+        <div role="tabpanel" class="tab-pane " id="messages">3</div>
+        <div role="tabpanel" class="tab-pane " id="settings">setting</div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+function dataformat(){
+  var time = new Date();
+  var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+  var num=time.getDay();//返回值存储在变量num中
+  var y = time.getFullYear();
+  var m = time.getMonth()+1 < 10 ? ('0' + (time.getMonth()+1)) : (time.getMonth()+1);
+  var d = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
+  var h = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
+  var mm = time.getMinutes() <10 ? '0' + time.getMinutes() : time.getMinutes();
+  var s = time.getSeconds() <10 ? '0' + time.getSeconds() : time.getSeconds();
+  return week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm;
+  // datestr = week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm+':'+s; 
+}
+
+var datestr = dataformat();
+$('#header .time').html(datestr); 
+setInterval(function(){
+  datestr = dataformat();
+  $('#header .time').html(datestr);
+},60000);
+
+// setInterval(dataformat(),1000);
+
+	/**
+	* @example $.cookie('the_cookie', 'the_value');
+	* @desc Set the value of a cookie.
+	* @example $.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: 'jquery.com', secure: true });
+	* @desc Create a cookie with all available options.
+	* @example $.cookie('the_cookie', 'the_value');
+	* @desc Create a session cookie.
+	* @example $.cookie('the_cookie', null);
+	*/
+	jQuery.cookie = function(name, value, options) {
+	    if (typeof value != 'undefined') { // name and value given, set cookie
+	        options = options || {};
+	        if (value === null) {
+	            value = '';
+	            options.expires = -1;
+	        }
+	        var expires = '';
+	        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+	            var date;
+	            if (typeof options.expires == 'number') {
+	                date = new Date();
+	                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+	            } else {
+	                date = options.expires;
+	            }
+	            expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+	        }
+	        // CAUTION: Needed to parenthesize options.path and options.domain
+	        // in the following expressions, otherwise they evaluate to undefined
+	        // in the packed version for some reason...
+	        var path = options.path ? '; path=' + (options.path) : '';
+	        var domain = options.domain ? '; domain=' + (options.domain) : '';
+	        var secure = options.secure ? '; secure' : '';
+	        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+	    } else { // only name given, get cookie
+	        var cookieValue = null;
+	        if (document.cookie && document.cookie != '') {
+	            var cookies = document.cookie.split(';');
+	            for (var i = 0; i < cookies.length; i++) {
+	                var cookie = jQuery.trim(cookies[i]);
+	                // Does this cookie string begin with the name we want?
+	                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                    break;
+	                }
+	            }
+	        }
+	        return cookieValue;
+	    }
+	};
+</script>

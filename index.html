@@ -12,39 +12,68 @@
   <style type="text/css">
     #header{
       margin:0 auto;
-      width: 80%;
-      height: 50px;
+      width: 86%;
+      height: 60px;
       background: lightblue;
-      line-height: 50px;
+      line-height: 60px;
       font-size:22px;
       color:green;
+      min-width: 600px;
     }
     #header img{
-      margin-left: 10px;
-      max-width: 30px;
-      height: auto;
+      margin:5px;
+      width: 50px;
+      height: 50px;
     }
     .popover {
-      background: lightblue;
+      /*background: lightblue;*/
       color:green;
     }
     #header .welcome{
       float: right;
-      margin-right: 20px;
+      margin-right: 30px;
       font-size:12px;
     }
+    .name-info button{
+      background:lightblue;
+      border:none;
+      color:green;
+      outline:none;
+    }
+    .name-info {
+      float: left;
+    }
+    .nav-link {
+      display: inline-block;
+      list-style: none;
+      padding-left: 20px;
+    }
+    .nav-link li{
+      list-style: none;
+      float: left;
+      margin-left: 50px;
+    }
+    .nav-link a{
+      text-decoration: none;
+      color:green;
+      opacity: 1;
+    }
+    .nav-link a:hover{
+      opacity: 0.6;
+    }
     .blog-container {
-      width: 80%;
+      width: 86%;
+      min-width: 600px;
       margin:0 auto;
     }
     #myCarousel {
-      width: 100%;
-      height: 350px;
+      /*width: 100%;*/
+      height: 400px;
       margin:0 auto;
     }
     .carousel-inner img{
-      width: 800px;
-      max-height: 350px;
+      width: 830px;
+      max-height: 400px;
       margin:0 auto;
     }
   </style>
@@ -52,122 +81,132 @@
 <body>
 <nav>
   <div id="header">
-    <img src="./images/8.png">
-    <span class="name">李景超的博客</span>
-    <!-- HTML to write -->
-    <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>
+    <div class="name-info">
+      <img src="./images/8.png">
+      <span class="name">李景超的博客</span>
+      <!-- HTML to write -->
+      <button style="" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>    
+    </div>
+    <ul class="nav-link">
+      <li><a href="/">首页</a></li>
+      <li><a href="/app">HTML</a></li>
+      <li><a href="/app">CSS</a></li>
+      <li><a href="/app">JS</a></li>
+    </ul>
     <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
   </div>
 </nav>
 <div class="blog-container">
-  <!-- Carousel  -->
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- 轮播（Carousel）指标 -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>   
-    <!-- 轮播（Carousel）项目 -->
-    <div class="carousel-inner">
-        <div class="item active">
-          <a href="https://www.baidu.com/">
-            <img src="./images/2.jpg" alt="First slide">
-            <!-- <div class="carousel-caption">标题 1</div> -->
-          </a>
-        </div>
-        <div class="item">
-          <a href="https://www.baidu.com/">
-            <img src="./images/8.jpg" alt="Second slide">
-            <!-- <div class="carousel-caption">标题 2</div> -->
-          </a>
-        </div>
-        <div class="item">
-          <a href="https://www.baidu.com/">
-            <img src="./images/0.jpg" alt="Third slide">
-            <!-- <div class="carousel-caption">标题 3</div> -->
-          </a>
-        </div>
+    <!-- Carousel  -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- 轮播（Carousel）指标 -->
+      <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>   
+      <!-- 轮播（Carousel）项目 -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <a href="https://www.baidu.com/">
+              <img src="./images/2.jpg" alt="First slide">
+              <!-- <div class="carousel-caption">标题 1</div> -->
+            </a>
+          </div>
+          <div class="item">
+            <a href="https://www.baidu.com/">
+              <img src="./images/8.jpg" alt="Second slide">
+              <!-- <div class="carousel-caption">标题 2</div> -->
+            </a>
+          </div>
+          <div class="item">
+            <a href="https://www.baidu.com/">
+              <img src="./images/0.jpg" alt="Third slide">
+              <!-- <div class="carousel-caption">标题 3</div> -->
+            </a>
+          </div>
+      </div>
+      <!-- 轮播（Carousel）导航 -->
+      <!-- <a class="carousel-control left" href="#myCarousel" 
+          data-slide="prev">&lsaquo;
+      </a>
+      <a class="carousel-control right" href="#myCarousel" 
+          data-slide="next">&rsaquo;
+      </a> -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <!-- 轮播（Carousel）导航 -->
-    <!-- <a class="carousel-control left" href="#myCarousel" 
-        data-slide="prev">&lsaquo;
-    </a>
-    <a class="carousel-control right" href="#myCarousel" 
-        data-slide="next">&rsaquo;
-    </a> -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
-  <!-- tab -->
-  <div id="navbar-example">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist" id="navbar-example">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size:"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-    </ul>
+    <!-- tab -->
+    <div id="navbar-example">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" id="navbar-example">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size:"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+      </ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
-      <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
-      <div role="tabpanel" class="tab-pane " id="messages">3</div>
-      <div role="tabpanel" class="tab-pane " id="settings">setting</div>
-    </div>
-  </div>
-
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch modal
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
+        <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
+        <div role="tabpanel" class="tab-pane " id="messages">3</div>
+        <div role="tabpanel" class="tab-pane " id="settings">setting</div>
       </div>
     </div>
+
+  <div style="display:none;">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch modal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+      </a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="well">
+          111
+        </div>
+      </div>
+
+      <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+      </div>
+
+      <div id="csswer" data-toggle="tooltip" data-trigger="click" title="Example tooltip">请点击在我的上面</div>
   </div>
-
-
-  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
-  </a>
- <!--  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-target
-  </button> -->
-  <div class="collapse" id="collapseExample">
-    <div class="well">
-      111
-    </div>
-  </div>
-
-  <div class="alert alert-warning alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
-  </div>
-
-  <div id="csswer" data-toggle="tooltip" data-trigger="click" title="Example tooltip">请点击在我的上面</div>
 
 </div>
 </body>
@@ -195,7 +234,7 @@ function dataformat(){
   var h = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
   var mm = time.getMinutes() <10 ? '0' + time.getMinutes() : time.getMinutes();
   var s = time.getSeconds() <10 ? '0' + time.getSeconds() : time.getSeconds();
-  return week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm;
+  return week[num] +'&nbsp&nbsp'+y+'-'+m+'-'+d+'&nbsp&nbsp'+h+':'+mm;
   // datestr = week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm+':'+s; 
 }
 
