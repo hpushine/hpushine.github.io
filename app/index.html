@@ -59,67 +59,80 @@
     .blog-container {
       width: 100%;
       min-width: 600px;
-      margin:0 auto;
+      margin: 0;
+      padding: 0;
     }
     #left {
       float: left;
-      width: 18%;
+      width: 16%;
       min-width: 100px;
       min-height: 580px;
-      background: #ebebeb;
+      text-align: center;
+      background: lightblue;
     }
     #right {
       float: left;
-      width: 82%;
+      width: 84%;
     }
   </style>
 </head>
 <body>
-<nav>
-  <div id="header">
-    <div class="name-info">
-      <img src="../images/05.png">
-      <span class="name">李景超的博客</span>
-      <!-- HTML to write -->
-      <!-- <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button> -->    
-    </div>
-    <ul class="nav-link">
-      <li><a href="/">首页</a></li>
-      <li><a href="/app">HTML</a></li>
-      <li><a href="/app">CSS</a></li>
-      <li><a href="/app">JS</a></li>
-    </ul>
-    <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
+<div id="header">
+  <div class="name-info">
+    <img src="../images/05.png">
+    <span class="name">李景超的博客</span>
+    <!-- HTML to write -->
+    <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>    
   </div>
-</nav>
-<div class="blog-container">
+  <ul class="nav-link">
+    <li><a href="/">首页</a></li>
+    <li><a href="/app">HTML</a></li>
+    <li><a href="/app">CSS</a></li>
+    <li><a href="/app">JS</a></li>
+  </ul>
+  <span class="welcome">欢迎进入我的博客！&nbsp&nbsp<span class="time"></span></span>
+</div>
+
+<div class="blog-container col-lg-12">
   <div id="left">
+    <ul class="nav bs-docs-sidenav">              
+      <li class=""><a href="#transitions">过渡效果</a></li>
+      <li class=""><a href="#scrollspy-examples">实例</a></li>
+      <li class=""><a href="#scrollspy-usage">用法</a></li>
+      <li><a href="#scrollspy-methods">方法</a></li>
+      <li><a href="#scrollspy-options">参数</a></li>
+      <li class=""><a href="#scrollspy-events">事件</a></li>
+    </ul>
+    <a class="back-to-top" href="#top">
+      返回顶部
+    </a>
   </div>
   <div id="right">
-    <!-- tab -->
+  
+   <!-- tab -->
     <div id="navbar-example">
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist" id="navbar-example">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size:"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
-        <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
-        <div role="tabpanel" class="tab-pane " id="messages">3</div>
-        <div role="tabpanel" class="tab-pane " id="settings">setting</div>
-      </div>
+     <!-- Nav tabs -->
+     <ul class="nav nav-tabs" role="tablist" id="navbar-example">
+       <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="text-shadow: black 5px 3px 3px;font-size:"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+       <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span> Profile</a></li>
+       <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+       <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+     </ul>
+   
+     <!-- Tab panes -->
+     <div class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
+       <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
+       <div role="tabpanel" class="tab-pane " id="messages">3</div>
+       <div role="tabpanel" class="tab-pane " id="settings">setting</div>
+     </div>
     </div>
-
+  
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
       Launch modal
     </button>
-
+  
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -158,7 +171,6 @@ function dataformat(){
   return week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm;
   // datestr = week[num] +'&nbsp&nbsp&nbsp&nbsp'+y+'-'+m+'-'+d+'  '+h+':'+mm+':'+s; 
 }
-
 var datestr = dataformat();
 $('#header .time').html(datestr); 
 setInterval(function(){
