@@ -102,7 +102,7 @@
     <img src="../images/05.png">
     <span class="name">李景超的博客</span>
     <!-- HTML to write -->
-    <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button>    
+    <!-- <button style="background:lightblue;border:none;color:green;outline:none;" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="这是我的个人博客，主要关于web前端知识的学习和总结！">详细介绍</button> -->    
   </div>
   <ul class="nav-link">
     <li><a href="/">首页</a></li>
@@ -301,12 +301,132 @@
         </div>
       </div>
       <div id="cnt3">
-        <h2>3</h2>
-        <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+        <h3>JavaScript深入之从原型到原型链</h3> 
+        <div class="edit-comment-hide">
+          <table class="d-block">
+            <tbody class="d-block">
+              <tr class="d-block">
+                <td class="d-block comment-body markdown-body  js-comment-body">
+                    <h2>构造函数创建对象</h2>
+                  <p>我们先使用构造函数创建一个对象：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+                  <span class="pl-k">var</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+                  <span class="pl-smi">person</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Kevin<span class="pl-pds">'</span></span>;
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Kevin</span></pre></div>
+                  <p>在这个例子中，Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person。</p>
+                  <p>很简单吧，接下来进入正题：</p>
+                  <h2>prototype</h2>
+                  <p>每个函数都有一个 prototype 属性，就是我们经常在各种例子中看到的那个 prototype ，比如：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+                  <span class="pl-c"><span class="pl-c">//</span> 虽然写在注释里，但是你要注意：</span>
+                  <span class="pl-c"><span class="pl-c">//</span> prototype是函数才会有的属性</span>
+                  <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Kevin<span class="pl-pds">'</span></span>;
+                  <span class="pl-k">var</span> person1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+                  <span class="pl-k">var</span> person2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person1</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Kevin</span>
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person2</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Kevin</span></pre></div>
+                  <p>那这个函数的 prototype 属性到底指向的是什么呢？是这个函数的原型吗？</p>
+                  <p>其实，函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的<strong>实例</strong>的原型，也就是这个例子中的 person1 和 person2 的原型。</p>
+                  <p>那什么是原型呢？你可以这样理解：每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型"继承"属性。</p>
+                  <p>让我们用一张图表示构造函数和实例原型之间的关系：</p>
+                  <p><a href="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png" target="_blank"><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png" alt="构造函数和实例原型的关系图" style="max-width:100%;"></a></p>
+                  <p>在这张图中我们用 Object.prototype 表示实例原型。</p>
+                  <p>那么我们该怎么表示实例与实例原型，也就是 person 和 Person.prototype 之间的关系呢，这时候我们就要讲到第二个属性：</p>
+                  <h2>__proto__</h2>
+                  <p>这是每一个JavaScript对象(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型。</p>
+                  <p>为了证明这一点,我们可以在火狐或者谷歌中输入：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+                  <span class="pl-k">var</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-smi">__proto__</span> <span class="pl-k">===</span> <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+                  <p>于是我们更新下关系图：</p>
+                  <p><a href="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png" target="_blank"><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png" alt="实例与实例原型的关系图" style="max-width:100%;"></a></p>
+                  <p>既然实例对象和构造函数都可以指向原型，那么原型是否有属性指向构造函数或者实例呢？</p>
+                  <h2>constructor</h2>
+                  <p>指向实例倒是没有，因为一个构造函数可以生成多个实例，但是原型指向构造函数倒是有的，这就要讲到第三个属性：constructor，每个原型都有一个 constructor 属性指向关联的构造函数。</p>
+                  <p>为了验证这一点，我们可以尝试：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(Person <span class="pl-k">===</span> <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span>); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+                  <p>所以再更新下关系图：</p>
+                  <p><a href="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png" target="_blank"><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png" alt="实例原型与构造函数的关系图" style="max-width:100%;"></a></p>
+                  <p>综上我们已经得出：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+
+                  <span class="pl-k">var</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-smi">__proto__</span> <span class="pl-k">==</span> <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>) <span class="pl-c"><span class="pl-c">//</span> true</span>
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">==</span> Person) <span class="pl-c"><span class="pl-c">//</span> true</span>
+                  <span class="pl-c"><span class="pl-c">//</span> 顺便学习一个ES5的方法,可以获得对象的原型</span>
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-c1">Object</span>.<span class="pl-en">getPrototypeOf</span>(person) <span class="pl-k">===</span> <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>) <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+                  <p>了解了构造函数、实例原型、和实例之间的关系，接下来我们讲讲实例和原型的关系：</p>
+                  <h2>实例与原型</h2>
+                  <p>当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。</p>
+                  <p>举个例子：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+
+                  <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Kevin<span class="pl-pds">'</span></span>;
+
+                  <span class="pl-k">var</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+
+                  <span class="pl-smi">person</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Daisy<span class="pl-pds">'</span></span>;
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Daisy</span>
+
+                  <span class="pl-k">delete</span> <span class="pl-smi">person</span>.<span class="pl-c1">name</span>;
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Kevin</span></pre></div>
+                  <p>在这个例子中，我们给实例对象 person 添加了 name 属性，当我们打印 person.name 的时候，结果自然为 Daisy。</p>
+                  <p>但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.__proto__ ，也就是 Person.prototype中查找，幸运的是我们找到了  name 属性，结果为 Kevin。</p>
+                  <p>但是万一还没有找到呢？原型的原型又是什么呢？</p>
+                  <h2>原型的原型</h2>
+                  <p>在前面，我们已经讲了原型也是一个对象，既然是对象，我们就可以用最原始的方式创建它，那就是：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> obj <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
+                  <span class="pl-smi">obj</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Kevin<span class="pl-pds">'</span></span>
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">obj</span>.<span class="pl-c1">name</span>) <span class="pl-c"><span class="pl-c">//</span> Kevin</span></pre></div>
+                  <p>所以原型对象是通过 Object 构造函数生成的，结合之前所讲，实例的 __proto__ 指向构造函数的 prototype ，所以我们再更新下关系图：</p>
+                  <p><a href="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png" target="_blank"><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png" alt="原型的原型关系图" style="max-width:100%;"></a></p>
+                  <h2>原型链</h2>
+                  <p>那 Object.prototype 的原型呢？</p>
+                  <p>null，不信我们可以打印：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-c1">Object</span>.<span class="pl-c1">prototype</span>.<span class="pl-smi">__proto__</span> <span class="pl-k">===</span> <span class="pl-c1">null</span>) <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+                  <p>所以查到属性的时候查到 Object.prototype 就可以停止查找了。</p>
+                  <p>所以最后一张关系图就是</p>
+                  <p><a href="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png" target="_blank"><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png" alt="原型链示意图" style="max-width:100%;"></a></p>
+                  <p>顺便还要说一下，图中由相互关联的原型组成的链状结构就是原型链，也就是蓝色的这条线。</p>
+                  <h2>补充</h2>
+                  <p>最后，补充三点大家可能不会注意的地方：</p>
+                  <h3>constructor</h3>
+                  <p>首先是 constructor 属性，我们看个例子：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Person</span>() {
+
+                  }
+                  <span class="pl-k">var</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Person</span>();
+                  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">person</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> Person); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+                  <p>当获取 person.constructor 时，其实 person 中并没有 constructor 属性,当不能读取到constructor 属性时，会从 person 的原型也就是 Person.prototype 中读取，正好原型中有该属性，所以：</p>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">person</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> <span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span></pre></div>
+                  <h3>__proto__</h3>
+                  <p>其次是 __proto__ ，绝大部分浏览器都支持这个非标准的方法访问原型，然而它并不存在于 Person.prototype 中，实际上，它是来自于 Object.prototype ，与其说是一个属性，不如说是一个 getter/setter，当使用 obj.__proto__ 时，可以理解成返回了 Object.getPrototypeOf(obj)。</p>
+                  <h3>真的是继承吗？</h3>
+                  <p>最后是关于继承，前面我们讲到“每一个对象都会从原型‘继承’属性”，实际上，继承是一个十分具有迷惑性的说法，引用《你不知道的JavaScript》中的话，就是：</p>
+                  <p>继承意味着复制操作，然而 JavaScript 默认并不会复制对象的属性，相反，JavaScript 只是在两个对象之间创建一个关联，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，委托的说法反而更准确些。</p>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div id="cnt4">
-        <h2>4</h2>
-        <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+  
       </div>
   </div>
 
