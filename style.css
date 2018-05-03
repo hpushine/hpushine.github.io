@@ -67,16 +67,22 @@ body {
 	color: #000;
 	font: normal 14px/1.4 "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
 	width: 100%;
+	/*min-width: 750px;*/
 	overflow: hidden
 }
 .left {
 	float: left
 }
 .right {
-	float: right
+	float: right;
+	margin-top: 10%;
+	margin-right: 5%  
 }
 .section-wrap {
 	position: relative;
+	/*min-width: 750px;
+	min-height: 769px;*/
+	/*overflow-y: hidden;*/
 	z-index: 2
 }
 .section {
@@ -370,8 +376,8 @@ body {
 	margin-left: 10%
 }
 .section-about .about-content .my-photo {
-	width: 335px;
-	height: 540px
+	width: 200px;
+	height: 300px
 }
 .section-about .about-content .right .fade4 {
 	top: 0;
@@ -553,25 +559,33 @@ body {
 	.state-indicator {
 		z-index: 2
 	}
-	.nav .back-home a {
+	/*.nav .back-home a {
 		background-image: url(images/head.png)
-		/*2倍图片*/
-	}
+	}*/
 }
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width:2000px) {
 	.works-content {
 		margin-top: 140px !important
 	}
 }
 @media only screen and (max-width:960px) {
 	.nav {
-		width: 760px
+		width: 750px
 	}
 	.section {
-		width: 760px
+		width: 750px
+	}
+	.works-content .works-item.first {
+		margin-left: 30px
 	}
 }
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:750px) {
+	.nav {
+		width: 580px
+	}
+	.section {
+		width: 550px
+	}
 	.section-about .about-content {
 		position: relative
 	}
@@ -585,19 +599,20 @@ body {
 		top: 0
 	}
 	.section-about .about-content .my-photo {
-		width: 250px;
-		height: auto
+		width: 150px;
+		height: 215px
 	}
 	.works-list {
 		width: 630px;
 		margin: 0 auto
 	}
-	.works-content .works-item:nth-child(2n+1) {
+	/*.works-content .works-item:nth-child(2n+1) {
 		margin-left: 0 !important
 	}
 	.works-content .works-item:nth-child(2n) {
 		margin-left: 30px !important
-	}
+	}*/
+	
 	.skill-content {
 		width: 600px;
 		margin: 0 auto
