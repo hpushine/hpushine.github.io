@@ -156,7 +156,7 @@ Global.forRetina = function(){
     }
 
     if( getDeviceState() ){
-        Global.changeDBImg();
+        // Global.changeDBImg();
     }
 
     $('.state-indicator').remove();

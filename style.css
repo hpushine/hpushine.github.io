@@ -67,7 +67,7 @@ body {
 	color: #000;
 	font: normal 14px/1.4 "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
 	width: 100%;
-	/*min-width: 750px;*/
+	min-width: 350px;
 	overflow: hidden
 }
 .left {
@@ -80,9 +80,7 @@ body {
 }
 .section-wrap {
 	position: relative;
-	/*min-width: 750px;
-	min-height: 769px;*/
-	/*overflow-y: hidden;*/
+	min-width: 350px;
 	z-index: 2
 }
 .section {
@@ -579,49 +577,87 @@ body {
 		margin-left: 30px
 	}
 }
-@media only screen and (max-width:750px) {
+@media only screen and (max-width:768px) {
 	.nav {
-		width: 580px
+		width: 500px
 	}
 	.section {
-		width: 550px
+		width: 500px
+	}
+
+	.nav .back-home a {
+		width: 80px;
+		height: 80px;
+		margin-left: -50px;
+		top:30px;
+		background-size:80px 80px;
 	}
 	.section-about .about-content {
 		position: relative
 	}
 	.section-about .about-content .left {
 		float: none;
-		margin: 20px 0 0 20px
+		margin: 20px 0 0 10px
 	}
 	.section-about .about-content .right {
 		position: absolute;
-		right: 10px;
+		right: 5px;
 		top: 0
 	}
 	.section-about .about-content .my-photo {
-		width: 150px;
-		height: 215px
+		width: 140px;
+		height: 200px
 	}
-	.works-list {
-		width: 630px;
-		margin: 0 auto
+	.works-content .works-item {
+		width: 235px
 	}
-	/*.works-content .works-item:nth-child(2n+1) {
+	.works-content .works-item:nth-child(2n+1) {
 		margin-left: 0 !important
 	}
 	.works-content .works-item:nth-child(2n) {
-		margin-left: 30px !important
-	}*/
-	
+		margin-left: 20px !important
+	}
 	.skill-content {
-		width: 600px;
 		margin: 0 auto
 	}
+
+	/*
 	.contact-content {
 		width: 600px;
 		margin: 0 auto
 	}
 	.section-contact .contact-content h1 {
 		text-align: center
-	}
+	}*/
 }
+@media only screen and (max-width:500px) {
+	.nav {
+		width: 320px
+	}
+	.section {
+		width: 320px
+	}
+
+	.nav .back-home a {
+		width: 50px;
+		height: 50px;
+		margin-left: -30px;
+		top:45px;
+		background-size:50px 50px
+	}
+	.section-about .about-content .right {
+		visibility: hidden;
+	}
+	.works-content .works-item {
+		width: 150px
+	}
+
+	.skill-content {
+		margin-top: 80px !important
+	}
+	.skill-content li{
+		font-size: 15px
+	}
+	
+	
+	
