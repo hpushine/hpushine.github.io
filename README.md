@@ -38,7 +38,7 @@ JSONP：
 优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。
 
 JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里
-
+```bash
 <script>
     function createJs(sUrl){
 
@@ -58,6 +58,7 @@ JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一�
         alert(json.name);
     }
 </script>
+```
 CORS
 服务器端对于CORS的支持，主要就是通过设置Access-Control-Allow-Origin来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。
 
@@ -169,7 +170,6 @@ sql注入原理
 就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
 
 总的来说有以下几点：
-
 
     1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双"-"进行转换等。
 
