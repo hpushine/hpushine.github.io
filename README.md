@@ -1,4 +1,6 @@
-#前端知识总结 http://segmentfault.com/u/trigkit4
+#前端知识总结 
+
+http://segmentfault.com/u/trigkit4
 
 一些开放性题目
 
