@@ -511,7 +511,8 @@ AngularJS的directive，你输入特定数据，他就能输出相应UI视图。
         };
         return obj;
     }
-    var test1 = createObject('trigkit4',22,'programmer');//第一个实例var test2 = createObject('mike',25,'engineer');//第二个实例
+    var test1 = createObject('trigkit4',22,'programmer');  //第一个实例
+    var test2 = createObject('mike',25,'engineer');  //第二个实例
 
 构造函数模式
 使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：
@@ -618,19 +619,22 @@ display:none  隐藏对应的元素，在文档布局中不再给它分配空间
 visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。
 
 CSS中link 和@import的区别是？
+
 (1) link属于HTML标签，而@import是CSS提供的;
 
 (2) 页面被加载的时，link会同时被加载，而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
 
 (3) import只在IE5以上才能识别，而link是HTML标签，无兼容问题;
 
-(4) link方式的样式的权重 高于@import的权重.
+(4) link方式的样式的权重 高于@import的权重
+
 position:absolute和float属性的异同
 共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并且可以设置其宽高。
 
 不同点：float仍会占据位置，absolute会覆盖文档流中的其他元素。
 
 介绍一下box-sizing属性？
+
 box-sizing属性主要用来控制元素的盒模型的解析模式。默认值是content-box。
 
 content-box：让元素维持W3C的标准盒模型。元素的宽度/高度由border + padding + content的宽度/高度决定，设置width/height属性指的是content部分的宽/高
@@ -664,6 +668,7 @@ CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算�
 important 比 内联优先级高,但内联比 id 要高
 
 CSS3新增伪类举例：
+
     p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
 
     p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
@@ -677,7 +682,9 @@ CSS3新增伪类举例：
     :enabled  :disabled 控制表单控件的禁用状态。
 
     :checked        单选框或复选框被选中。
+
 CSS3有哪些新特性？
+
 CSS3实现圆角（border-radius），阴影（box-shadow），
 
 对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）
@@ -718,59 +725,65 @@ Width = width(包含padding-left + padding-right + border-left + border-right)
 布局所占高度Height:
 
 Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
+
 对BFC规范的理解？
+
       BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个BFC中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的margin会发生折叠。
 
     （W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。
+
 说说你对语义化的理解？
 
-1，去掉或者丢失样式的时候能够让页面呈现出清晰的结构
+1. 去掉或者丢失样式的时候能够让页面呈现出清晰的结构
 
-2，有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
+2. 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
 
-3，方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
+3. 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页
 
-4，便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。
+4. 便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。
+5. 
 Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?
 
 1）、<!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。
 
-2）、严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。
+2）严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。
 
-3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
+3）在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
 
-4）、DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
+4）DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
 
 你知道多少种Doctype文档类型？
 
- 该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。
+    该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。
 
- HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。
+    HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。
 
- XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。
+    XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。
 
-Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks
+    Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks
 
- （包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。
+    （包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。
+
 HTML与XHTML——二者有什么区别
 
 区别：
 
-1.所有的标记都必须要有一个相应的结束标记
+1. 所有的标记都必须要有一个相应的结束标记
 
-2.所有标签的元素和属性的名字都必须使用小写
+2. 所有标签的元素和属性的名字都必须使用小写
 
-3.所有的XML标记都必须合理嵌套
+3. 所有的XML标记都必须合理嵌套
 
-4.所有的属性必须用引号""括起来
+4. 所有的属性必须用引号""括起来
 
-5.把所有<和&特殊符号用编码表示
+5. 把所有<和&特殊符号用编码表示
 
-6.给所有属性赋一个值
+6. 给所有属性赋一个值
 
-7.不要在注释内容中使“--”
+7. 不要在注释内容中使“--”
 
-8.图片必须有说明文字
+8. 图片必须有说明文字
+
 常见兼容性问题？
 
 png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.也可以引用一段脚本处理.
@@ -787,7 +800,6 @@ IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie
 _display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)
 
 渐进识别的方式，从总体中逐渐排除局部。
-
 
   首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。
 
@@ -809,8 +821,8 @@ _display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)
 
 
 怪异模式问题：漏写DTD声明，Firefox仍然会按照标准模式来解析网页，但在IE中会触发
-怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写DTD声明的好习惯。现在
-可以使用[html5](http://www.w3.org/TR/html5/single-page.html)推荐的写法：`<doctype html>`
+怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写DTD声明的好习惯。现在可以使用[html5](http://www.w3.org/TR/html5/single-page.html)推荐的写法：`<doctype html>`
+
 上下margin重合问题
 ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合，但是margin-top和margin-bottom却会发生重合。
 
@@ -819,18 +831,18 @@ ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合�
 
 浮动元素脱离文档流，不占据空间。浮动元素碰到包含它的边框或者浮动元素的边框停留。
 
-
-1.使用空标签清除浮动。
+1. 使用空标签清除浮动。
 
    这种方法是在所有浮动标签后面添加一个空标签 定义css clear:both. 弊端就是增加了无意义标签。
 
-2.使用overflow。
+2. 使用overflow。
 
    给包含浮动元素的父标签添加css属性 overflow:auto; zoom:1; zoom:1用于兼容IE6。
 
-3.使用after伪对象清除浮动。
+3. 使用after伪对象清除浮动。
 
    该方法只适用于非IE浏览器。具体写法可参照以下示例。使用中需注意以下几点。一、该方法中必须为需要清除浮动元素的伪对象中设置 height:0，否则该元素会比实际高出若干像素；
+
 浮动元素引起的问题和解决办法？
 
 浮动元素引起的问题：
@@ -840,7 +852,9 @@ ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合�
 （2）与浮动元素同级的非浮动元素（内联元素）会跟随其后
 
 （3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构
+
 解决方法：
+
 使用CSS中的clear:both;属性来清除元素的浮动可解决2、3问题，对于问题1，添加如下样式，给父元素添加clearfix样式：
 
     .clearfix:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
@@ -848,9 +862,9 @@ ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合�
     .clearfix{display: inline-block;} /* for IE/Mac */
 清除浮动的几种方法：
 
-    1，额外标签法，<div style="clear:both;"></div>（缺点：不过这个办法会增加额外的标签使HTML结构看起来不够简洁。）
+    1. 额外标签法，<div style="clear:both;"></div>（缺点：不过这个办法会增加额外的标签使HTML结构看起来不够简洁。）
 
-    2，使用after伪类
+    2. 使用after伪类
 
     #parent:after{
 
@@ -867,9 +881,10 @@ ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合�
         }
 
 
-    3,浮动外部元素
+    3. 浮动外部元素
 
-    4,设置overflow为hidden或者auto
+    4. 设置overflow为hidden或者auto
+
 DOM操作——怎样添加、移除、移动、复制、创建和查找节点。
 
 1）创建新节点
@@ -893,32 +908,34 @@ DOM操作——怎样添加、移除、移动、复制、创建和查找节点�
       会得到一个数组，其中包括id等于name值的)
 
       getElementById()    //通过元素Id，唯一性
+
 html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？
 
-  HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。
+    HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。
 
-  拖拽释放(Drag and drop) API
+    拖拽释放(Drag and drop) API
 
-  语义化更好的内容标签（header,nav,footer,aside,article,section）
+    语义化更好的内容标签（header,nav,footer,aside,article,section）
 
-  音频、视频API(audio,video)
+    音频、视频API(audio,video)
 
-  画布(Canvas) API
+    画布(Canvas) API
 
-  地理(Geolocation) API
+    地理(Geolocation) API
 
-  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+    本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
 
-  sessionStorage 的数据在浏览器关闭后自动删除
+    sessionStorage 的数据在浏览器关闭后自动删除
 
+    表单控件，calendar、date、time、email、url、search
 
-  表单控件，calendar、date、time、email、url、search
+    新的技术webworker, websocket, Geolocation
 
-  新的技术webworker, websocket, Geolocation
-移除的元素
-纯表现的元素：basefont，big，center，font, s，strike，tt，u；
+    移除的元素
+    纯表现的元素：basefont，big，center，font, s，strike，tt，u；
 
-对可用性产生负面影响的元素：frame，frameset，noframes；
+    对可用性产生负面影响的元素：frame，frameset，noframes；
+
 支持HTML5新标签：
 
     IE8/IE7/IE6支持通过document.createElement方法产生的标签，
@@ -933,7 +950,6 @@ html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的�
 
        <![endif]-->
 
-    如何区分： DOCTYPE声明\新增的结构元素\功能元素
 如何实现浏览器内多个标签页之间的通信?
 
     调用localstorge、cookies等本地存储方式
@@ -943,9 +959,11 @@ html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的�
 
      <style type="text/css" media="all">@import "../fouc.css";</style>
 
-    而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
+    而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件
+    因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
 
-     解决方法简单的出奇，只要在<head>之间加入一个<link>或者<script>元素就可以了。
+    解决方法简单的出奇，只要在<head>之间加入一个<link>或者<script>元素就可以了。
+
 null和undefined的区别？
 
 null是一个表示"无"的对象，转为数值时为0；undefined是一个表示"无"的原始值，转为数值时为NaN。
@@ -971,6 +989,7 @@ null表示"没有对象"，即该处不应该有值。典型用法是：
 （1） 作为函数的参数，表示该函数的参数不是对象。
 
 （2） 作为对象原型链的终点。
+
 new操作符具体干了什么呢?
 
    1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
@@ -979,16 +998,16 @@ new操作符具体干了什么呢?
 
    3、新创建的对象由 this 所引用，并且最后隐式的返回 this 。
 
+    var obj  = {};
 
+    obj.__proto__ = Base.prototype;
 
-var obj  = {};
+    Base.call(obj);
 
-obj.__proto__ = Base.prototype;
-
-Base.call(obj);
 js延迟加载的方式有哪些？
 
 defer和async、动态创建DOM方式（创建script，插入到DOM中，加载完毕后callBack）、按需异步载入js
+
 call() 和 apply() 的区别和作用？
 
 作用：动态改变某个类的某个方法的运行环境（执行上下文）。
@@ -1000,7 +1019,6 @@ call() 和 apply() 的区别和作用？
 内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。
 
 垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
-
 
 
 setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
@@ -1047,31 +1065,29 @@ SSE（Server-Send Event）：服务器推送数据新方式
     3、有了Node.js，前端可以实现服务端的一些事情
 
 
-前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好，
+前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好
 
+    参与项目，快速高质量完成实现效果图，精确到1px；
 
+    与团队成员，UI设计，产品经理的沟通；
 
- 参与项目，快速高质量完成实现效果图，精确到1px；
+    做好的页面结构，页面重构和用户体验；
 
- 与团队成员，UI设计，产品经理的沟通；
+    处理hack，兼容、写出优美的代码格式；
 
- 做好的页面结构，页面重构和用户体验；
+    针对服务器的优化、拥抱最新前端技术。
 
- 处理hack，兼容、写出优美的代码格式；
-
- 针对服务器的优化、拥抱最新前端技术。
 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
 
     分为4个步骤：
 
-    （1），当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
+    （1）当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
 
-    （2）， 浏览器与远程`Web`服务器通过`TCP`三次握手协商来建立一个`TCP/IP`连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+    （2），浏览器与远程`Web`服务器通过`TCP`三次握手协商来建立一个`TCP/IP`连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
 
-    （3），一旦`TCP/IP`连接建立，浏览器会通过该连接向远程服务器发送`HTTP`的`GET`请求。远程服务器找到资源并使用HTTP响应返回该资源，值为200的HTTP响应状态表示一个正确的响应。
+    （3）一旦`TCP/IP`连接建立，浏览器会通过该连接向远程服务器发送`HTTP`的`GET`请求。远程服务器找到资源并使用HTTP响应返回该资源，值为200的HTTP响应状态表示一个正确的响应。
 
-    （4），此时，`Web`服务器提供资源服务，客户端开始下载资源。
-
+    （4）此时，`Web`服务器提供资源服务，客户端开始下载资源。
 
 
 请求返回后，便进入了我们关注的前端模块
@@ -1081,33 +1097,33 @@ SSE（Server-Send Event）：服务器推送数据新方式
 
 javascript对象的几种创建方式
 
-1，工厂模式
+1. 工厂模式
 
-2，构造函数模式
+2. 构造函数模式
 
-3，原型模式
+3. 原型模式
 
-4，混合构造函数和原型模式
+4. 混合构造函数和原型模式
 
-5，动态原型模式
+5. 动态原型模式
 
-6，寄生构造函数模式
+6. 寄生构造函数模式
 
-7，稳妥构造函数模式
+7. 稳妥构造函数模式
+
 javascript继承的6种方法
 
-1，原型链继承
+1. 原型链继承
 
-2，借用构造函数继承
+2. 借用构造函数继承
 
-3，组合继承(原型+借用构造)
+3. 组合继承(原型+借用构造)
 
-4，原型式继承
+4. 原型式继承
 
-5，寄生式继承
+5. 寄生式继承
 
-6，寄生组合式继承
-详情：JavaScript继承方式详解
+6. 寄生组合式继承
 
 创建ajax的过程
 
@@ -1123,7 +1139,6 @@ javascript继承的6种方法
 
     (6)使用JavaScript和DOM实现局部刷新.
 
-
     var xmlHttp = new XMLHttpRequest();
 
     xmlHttp.open('GET','demo.php','true');
@@ -1137,23 +1152,24 @@ javascript继承的6种方法
         }
 
     }
-详情：JavaScript学习总结（七）Ajax和Http状态字
 
 异步加载和延迟加载
 
-1.异步加载的方案： 动态插入script标签
+1. 异步加载的方案： 动态插入script标签
 
-2.通过ajax去获取js代码，然后通过eval执行
+2. 通过ajax去获取js代码，然后通过eval执行
 
-3.script标签上添加defer或者async属性
+3. script标签上添加defer或者async属性
 
-4.创建并插入iframe，让它异步执行js
+4. 创建并插入iframe，让它异步执行js
 
-5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
+5. 延迟加载：有些js代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
+6. 
 ie各版本和chrome可以并行下载多少个资源
 
 IE6 两个并发，iE7升级之后的6个并发，之后版本也是6个
 Firefox，chrome也是6个
+
 Flash、Ajax各自的优缺点，在使用中如何取舍？
 
 Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。
@@ -1187,8 +1203,6 @@ GET和POST的区别，何时使用POST？
 
     也就是说Get是通过地址栏来传值，而Post是通过提交表单来传值。
 
-
-
 然而，在以下情况中，请使用 POST 请求：
 
 无法使用缓存文件（更新服务器上的文件或数据库）
@@ -1217,6 +1231,7 @@ ajax的缺点
   4、破坏了程序的异常机制。
 
   5、不容易调试。
+
 IE缓存问题
 在IE浏览器下，如果请求的方法是GET，并且请求的URL不变，那么这个请求的结果就会被缓存。解决这个问题的办法可以通过实时改变请求的URL，只要URL改变，就不会被缓存，可以通过在URL末尾添加上随机的时间戳参数('t'= + new Date().getTime())
 
@@ -1244,7 +1259,6 @@ Ajax请求的页面历史记录状态问题
 
 深层次的网站重构应该考虑的方面
 
-
 减少代码间的耦合
 
 让代码保持弹性
@@ -1259,8 +1273,6 @@ Ajax请求的页面历史记录状态问题
 
 通常来说对于速度的优化也包含在重构中
 
-
-
 压缩JS、CSS、image等前端资源(通常是由服务器来解决)
 
 程序的性能优化(如数据读写)
@@ -1270,6 +1282,7 @@ Ajax请求的页面历史记录状态问题
 对于JS DOM的优化
 
 HTTP服务器的文件缓存
+
 HTTP状态码
 
     100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
@@ -1300,20 +1313,21 @@ HTTP状态码
     500 Internal Server Error  最常见的服务器端错误。
 
     503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
+
 说说你对Promise的理解
 
 依照 Promise/A+ 的定义，Promise 有四种状态：
 
-pending: 初始状态, 非 fulfilled 或 rejected.
+    pending: 初始状态, 非 fulfilled 或 rejected.
 
-fulfilled: 成功的操作.
+    fulfilled: 成功的操作.
 
-rejected: 失败的操作.
+    rejected: 失败的操作.
 
-settled: Promise已被fulfilled或rejected，且不是pending
-另外， fulfilled 与 rejected 一起合称 settled。
+    settled: Promise已被fulfilled或rejected，且不是pending
+    另外， fulfilled 与 rejected 一起合称 settled。
 
-Promise 对象用来进行延迟(deferred) 和异步(asynchronous ) 计算。
+    Promise 对象用来进行延迟(deferred) 和异步(asynchronous ) 计算。
 
 Promise 的构造函数
 构造一个 Promise，最基本的用法如下：
@@ -1330,6 +1344,7 @@ Promise 的构造函数
 
         }
     });
+
 Promise 实例拥有 then 方法（具有 then 方法的对象，通常被称为 thenable）。它的使用方法如下：
 
 promise.then(onFulfilled, onRejected)
@@ -1353,6 +1368,7 @@ promise.then(onFulfilled, onRejected)
 
             return o;
     }
+
 说说严格模式的限制
 
 严格模式主要有以下限制：
@@ -1401,13 +1417,14 @@ arguments不会自动反映函数参数的变化
 如何删除一个cookie
 
 1.将时间设为当前时间往前一点。
-var date = new Date();
+    var date = new Date();
 
-date.setDate(date.getDate() - 1);//真正的删除
-setDate()方法用于设置一个月的某一天。
+    date.setDate(date.getDate() - 1);//真正的删除
+    setDate()方法用于设置一个月的某一天。
 
 2.expires的设置
     document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)
+
 <strong>，<em>和<b>，<i>标签
 
 <strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
@@ -1423,7 +1440,6 @@ CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS
 
 AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。
 
-详情：也谈webpack及其开发模式
 document.write()的用法
 
 document.write()方法可以用在两个方面：页面载入过程中用实时脚本创建页面内容，以及用延时脚本创建本窗口或新窗口的内容。
@@ -1459,6 +1475,7 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 说说你对MVC和MVVM的理解
 
 MVC
+
 View 传送指令到 Controller
 
 Controller 完成业务逻辑后，要求 Model 改变状态
@@ -1502,15 +1519,17 @@ property就是dom元素在js中作为对象拥有的属性。
 物理和数据链路层（以太网）
 
 每一层的作用如下：
-物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
-数据链路层：将比特组装成帧和点到点的传递（帧Frame）
-网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
-传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
-会话层：建立、管理和终止会话（会话协议数据单元SPDU）
-表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
-应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
+
+    物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
+    数据链路层：将比特组装成帧和点到点的传递（帧Frame）
+    网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
+    传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
+    会话层：建立、管理和终止会话（会话协议数据单元SPDU）
+    表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
+    应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
 各种协议
-ICMP协议： 因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。 TFTP协议： 是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。 HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。 DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。
+
+    ICMP协议： 因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。 TFTP协议： 是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。 HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。 DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。
 
 说说mongoDB和MySQL的区别
 
@@ -1524,15 +1543,9 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
 
 服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。
 
-
-
 304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件
 
-
-
 客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。
-
-
 
 什么样的前端代码是好的
 
