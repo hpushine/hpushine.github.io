@@ -1416,22 +1416,24 @@ arguments不会自动反映函数参数的变化
 
 如何删除一个cookie
 
-1.将时间设为当前时间往前一点。
-    var date = new Date();
+1. 将时间设为当前时间往前一点
 
+    var date = new Date();
     date.setDate(date.getDate() - 1);//真正的删除
     setDate()方法用于设置一个月的某一天。
 
-2.expires的设置
+2. expires的设置
+
     document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)
 
-<strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
+strong标签和em标签一样，用于强调文本，但它强调的程度更强一些。
 
 em是斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
 
-< b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
+b标签和i标签是视觉要素，分别表示无意义的加粗，无意义的斜体。
 
 em 和 strong 是表达要素(phrase elements)。
+
 说说你对AMD和Commonjs的理解
 
 CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。
