@@ -1425,11 +1425,9 @@ arguments不会自动反映函数参数的变化
 2.expires的设置
     document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)
 
-<strong>，<em>和<b>，<i>标签
-
 <strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
 
-em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
+em是斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
 
 < b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
 
