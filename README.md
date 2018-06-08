@@ -212,6 +212,7 @@ CSRF的防御
 Web Worker 和webSocket
 
 worker主线程:
+
     1.通过 worker = new Worker( url ) 加载一个JS文件来创建一个worker，同时返回一个worker实例。
 
     2.通过worker.postMessage( data ) 方法来向worker发送数据。
