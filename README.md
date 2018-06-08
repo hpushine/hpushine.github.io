@@ -205,7 +205,9 @@ XSS是获取信息，不需要提前知道其他用户页面的代码和数据�
 登录受信任网站A，并在本地生成Cookie。
 
 在不登出A的情况下，访问危险网站B。
+
 CSRF的防御
+
 服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
 
 通过验证码的方法
@@ -243,19 +245,21 @@ AMD 是提前执行，CMD 是延迟执行。
 AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。
 
 CMD模块方式
+
     define(function(require, exports, module) {
-
       // 模块代码
-
     });
+
 Javascript垃圾回收方法
 
 标记清除（mark and sweep）
+
 这是JavaScript最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。
 
 垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了
 
 引用计数(reference counting)
+
 在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。
 
 在IE中虽然JavaScript对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的， 也就是说只要涉及BOM及DOM就会出现循环引用问题。
@@ -303,6 +307,7 @@ Javascript垃圾回收方法
 避免图片和iFrame等的空Src。空Src会重新加载当前页面，影响速度和效率
 
 尽量避免写在HTML标签中写Style属性
+
 移动端性能优化
 
 尽量使用css3动画，开启硬件加速。
@@ -313,8 +318,10 @@ Javascript垃圾回收方法
 不滥用Web字体。Web字体需要下载，解析，重绘当前页面，尽量减少使用。
 合理使用requestAnimationFrame动画代替setTimeout
 CSS中的属性（CSS3 transitions、CSS3 3D transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加
+
 PC端的在移动端同样适用
 相关阅读：如何做到一秒渲染一个移动页面
+
 什么是Etag？
 
 当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。
@@ -328,8 +335,6 @@ PC端的在移动端同样适用
 情形一：若两种判断的结论都是文件没有被修改过，则服务器就不给浏览器发index.html的内容了，直接告诉它，文件没有被修改过，你用你那边的缓存吧—— 304 Not Modified，此时浏览器就会从本地缓存中获取index.html的内容。此时的情况叫协议缓存，浏览器和服务器之间有一次请求交互。
 
 情形二：若修改时间和文件内容判断有任意一个没有通过，则服务器会受理此次请求，之后的操作同①
-
-
 
 ① 只有get请求会被缓存，post请求不会
 
@@ -350,12 +355,12 @@ ETag应用:
 
 Etag由服务器端生成，客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match。请求一个文件的流程可能如下：
 
-====第一次请求===
+====第一次请求====
 
 1.客户端发起 HTTP GET 请求一个文件；
 
 2.服务器处理请求，返回文件内容和一堆Header，当然包括Etag(例如"2e681a-6-5d044840")(假设服务器支持Etag生成和已经开启了Etag).状态码200
-====第二次请求===
+====第二次请求====
 
 客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d0448402.服务器判断发送过来的Etag和计算出来的Etag匹配，因此If-None-Match为False，不返回200，返回304，客户端继续使用本地缓存；流程很简单，问题是，如果服务器又设置了Cache-Control:max-age和Expires呢，怎么办
 答案是同时使用，也就是说在完全匹配If-Modified-Since和If-None-Match即检查完修改时间和Etag之后，
@@ -452,10 +457,15 @@ ES6的了解
 js继承方式及其优缺点
 
 原型链继承的缺点
+
 一是字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数。
+
 借用构造函数（类式继承）
+
 借用构造函数虽然解决了刚才两种问题，但没有原型，则复用无从谈起。所以我们需要原型链+借用构造函数的模式，这种模式称为组合继承
+
 组合式继承
+
 组合式继承是比较常用的一种继承方法，其背后的思路是 使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。
 具体请看：JavaScript继承方式详解
 
@@ -469,8 +479,6 @@ HTTP/2使用多路技术，允许多个消息在一个连接上同时交差。
 
 它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。
 
-
-
 defer和async
 
 defer并行加载js文件，会按照页面上script标签的顺序执行 async并行加载js文件，下载完成立即执行，不会按照页面上script标签的顺序执行
@@ -482,11 +490,7 @@ defer并行加载js文件，会按照页面上script标签的顺序执行 async�
 
 backbone具有依赖性，依赖underscore.js。Backbone + Underscore + jQuery(or Zepto) 就比一个AngularJS 多出了2 次HTTP请求.
 
-
-
 Backbone的Model没有与UI视图数据绑定，而是需要在View中自行操作DOM来更新或读取UI数据。AngularJS与此相反，Model直接与UI视图绑定，Model与UI视图的关系，通过directive封装，AngularJS内置的通用directive，就能实现大部分操作了，也就是说，基本不必关心Model与UI视图的关系，直接操作Model就行了，UI视图自动更新。
-
-
 
 AngularJS的directive，你输入特定数据，他就能输出相应UI视图。是一个比较完善的前端MVW框架，包含模板，数据双向绑定，路由，模块化，服务，依赖注入等所有功能，模板功能强大丰富，并且是声明式的，自带了丰富的 Angular 指令。
 
@@ -498,38 +502,37 @@ AngularJS的directive，你输入特定数据，他就能输出相应UI视图。
     工厂模式解决了重复实例化的问题 ，但还有一个问题,那就是识别问题，因为根本无法 搞清楚他们到底是哪个对象的实例。
 
 
-function createObject(name,age,profession){//集中实例化的函数var obj = new Object();
-    obj.name = name;
-    obj.age = age;
-    obj.profession = profession;
-    obj.move = function () {
-        return this.name + ' at ' + this.age + ' engaged in ' + this.profession;
-    };
-    return obj;
-}
-var test1 = createObject('trigkit4',22,'programmer');//第一个实例var test2 = createObject('mike',25,'engineer');//第二个实例
-
+    function createObject(name,age,profession){//集中实例化的函数var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.profession = profession;
+        obj.move = function () {
+            return this.name + ' at ' + this.age + ' engaged in ' + this.profession;
+        };
+        return obj;
+    }
+    var test1 = createObject('trigkit4',22,'programmer');//第一个实例var test2 = createObject('mike',25,'engineer');//第二个实例
 
 构造函数模式
 使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：
 
-1.构造函数方法没有显示的创建对象 (new Object());
+1. 构造函数方法没有显示的创建对象 (new Object());
 
-2.直接将属性和方法赋值给 this 对象;
+2. 直接将属性和方法赋值给 this 对象;
 
-3.没有 renturn 语句。
+3. 没有 renturn 语句。
+
 说说你对闭包的理解
 
 使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。在js中，函数即闭包，只有函数才会产生作用域的概念
 
 闭包有三个特性：
 
-1.函数嵌套函数
+1. 函数嵌套函数
 
-2.函数内部可以引用外部的参数和变量
+2. 函数内部可以引用外部的参数和变量
 
-3.参数和变量不会被垃圾回收机制回收
-具体请看：详解js闭包
+3. 参数和变量不会被垃圾回收机制回收
 
 请你谈谈Cookie的弊端
 
@@ -537,13 +540,13 @@ cookie虽然在持久保存客户端数据提供了方便，分担了服务器�
 
 第一：每个特定的域名下最多生成20个cookie
 
-1.IE6或更低版本最多20个cookie
+1. IE6或更低版本最多20个cookie
 
-2.IE7和之后的版本最后可以有50个cookie。
+2. IE7和之后的版本最后可以有50个cookie。
 
-3.Firefox最多50个cookie
+3. Firefox最多50个cookie
 
-4.chrome和Safari没有做硬性限制
+4. chrome和Safari没有做硬性限制
 IE和Opera 会清理近期最少使用的cookie，Firefox会随机清理cookie。
 
 cookie的最大大约为4096字节，为了兼容性，一般不能超过4095字节。
@@ -551,20 +554,21 @@ cookie的最大大约为4096字节，为了兼容性，一般不能超过4095字
 IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0就开始支持。每个数据最多128K，每个域名下最多1M。这个持久化数据放在缓存中，如果缓存没有清理，那么会一直存在。
 
 优点：极高的扩展性和可用性
-1.通过良好的编程，控制保存在cookie中的session对象的大小。
 
-2.通过加密和安全传输技术（SSL），减少cookie被破解的可能性。
+1. 通过良好的编程，控制保存在cookie中的session对象的大小。
 
-3.只在cookie中存放不敏感数据，即使被盗也不会有重大损失。
+2. 通过加密和安全传输技术（SSL），减少cookie被破解的可能性。
 
-4.控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大损失。
+
+4. 控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。
+
 缺点：
-1.`Cookie`数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉.
+1. `Cookie`数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉.
 
+2. 安全性问题。如果cookie被人拦截了，那人就可以取得所有的session信息。即使加密也与事无补，因为拦截者并不需要知道cookie的意义，他只要原样转发cookie就可以达到目的了。
 
-2.安全性问题。如果cookie被人拦截了，那人就可以取得所有的session信息。即使加密也与事无补，因为拦截者并不需要知道cookie的意义，他只要原样转发cookie就可以达到目的了。
-
-3.有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。
+3. 有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。
 浏览器本地存储
 
 在较高版本的浏览器中，js提供了sessionStorage和globalStorage。在HTML5中提供了localStorage来取代globalStorage。
@@ -606,10 +610,13 @@ cookie 和session 的区别：
     将登陆信息等重要信息存放为SESSION
 
     其他信息如果需要保留，可以放在COOKIE中
+
 display:none和visibility:hidden的区别？
+
 display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。
 
 visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。
+
 CSS中link 和@import的区别是？
 (1) link属于HTML标签，而@import是CSS提供的;
 
